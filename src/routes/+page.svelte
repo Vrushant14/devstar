@@ -159,6 +159,8 @@
         }
     }
 
+    
+
     function handleDragEnd() {
         activeElement = null;
     }
