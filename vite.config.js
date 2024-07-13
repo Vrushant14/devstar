@@ -9,6 +9,3 @@ plugins: [sveltekit(), isoImport()],
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
 });
-
-
-
