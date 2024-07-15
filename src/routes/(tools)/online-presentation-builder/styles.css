@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 15%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+}
+
+#presentation-name {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.add-slide {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.slides-list {
+    margin-bottom: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.slide-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.slide-item.selected {
+    border-color: #007bff;
+}
+
+.main {
+    width: 70%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.toolbar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.toolbar button,
+.toolbar select,
+.toolbar input[type="color"] {
+    padding: 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.slide-editor {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-content {
+    text-align: center;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.draggable-text {
+    position: absolute;
+    cursor: move;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 5px;
+    min-width: 50px;
+    min-height: 20px;
+    user-select: none; /* Prevent text selection during drag */
+}
+
+.draggable-text:focus {
+    outline: none; /* Remove default focus outline */
+}
+
+.draggable {
+    border: 1px solid #000;
+    padding: 5px;
+    display: inline-block;
+    cursor: move;
+    position: absolute;
+}
+
+.draggable p {
+    margin: 0;
+}
+.side-tools {
+    width: 15%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-left: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.side-tools button {
+    padding: 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
