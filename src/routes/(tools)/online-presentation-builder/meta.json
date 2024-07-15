@@ -1,23 +1,8 @@
 {
-    "name": "",
-    "description":"",
-    "contributors": [{
-        "name": "",
-        "githubId": ""
-    }, {
-        "name": "",
-        "githubId": ""
-    },
-    {
-        "name": "",
-        "githubId": ""
-    },
-    {
-        "name": "",
-        "githubId": ""
-    },
-    {
-        "name": "",
-        "githubId": ""
-    }]
-}
+    "name": "Presentation Builder",
+    "description": "A simple presentation builder application.",
+    "dependencies": {
+      "jspdf": "^2.3.1"
+    }
+  }
+  
