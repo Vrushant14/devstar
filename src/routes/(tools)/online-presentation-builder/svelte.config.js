@@ -1,8 +1,11 @@
 import adapter from '@sveltejs/adapter-node';
 
-export default {
+const config = {
     kit: {
-        adapter: adapter()
-        // Other SvelteKit configurations
+        adapter: adapter({ out: 'build' }),
+        target: '#svelte',
+        // Add any other necessary configurations
     }
 };
+
+export default config;
