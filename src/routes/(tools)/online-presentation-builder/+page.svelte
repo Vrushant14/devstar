@@ -351,7 +351,7 @@ function openShareLink(link) {
 
   .sidebar {
     width: 200px;
-    background-color: #333;
+    background-color: #1f2b46;
     color: #fff;
     padding: 10px;
     box-sizing: border-box;
@@ -415,15 +415,16 @@ function openShareLink(link) {
 
   .side-tools.left button {
     margin-bottom: 10px;
-    color: #333; /* Darken the text color for visibility */
-    background-color: #f4f4f4; /* Subtle color background */
+    color: #fff; /* Darken the text color for visibility */
+    background-color: #1f2b46; /* Subtle color background */
     border: none;
     padding: 10px 15px;
     cursor: pointer;
+    border-radius: 5px;
   }
 
   .side-tools.left button:hover {
-    background-color: #ccc; /* Darken background on hover */
+    background-color: #384f84; /* Darken background on hover */
   }
 
   .side-tools.left button:active {
@@ -455,7 +456,6 @@ function openShareLink(link) {
     padding: 5px;
     box-sizing: border-box;
   }
-
   .slide-item input:focus {
     outline: none;
   }
