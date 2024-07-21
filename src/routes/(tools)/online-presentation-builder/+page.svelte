@@ -241,8 +241,9 @@ function openShareLink(link) {
     slides[slideIndex].content[field].fontFamily = element.style.fontFamily;
     slides[slideIndex].content[field].color = element.style.color;
   }
+  
 </script>
-
+  <h1>Online Presentation Builder</h1>
 <div class="container">
   <div class="sidebar left">
     <input
@@ -262,7 +263,7 @@ function openShareLink(link) {
         />
       </div>
     {/each}
-    <button on:click={addSlide}>Add Slide</button>
+    <button class="addSlide" on:click={addSlide}>Add Slide</button>
 
     <div class="side-tools left">
       <button on:click={savePresentation}>Save</button>
@@ -284,7 +285,8 @@ function openShareLink(link) {
       <label for="color-picker">Color:</label>
       <input type="color" id="color-picker" on:change={changeColor} />
       <button on:click={addText}>Add Text</button>
-    </div>
+</div>
+
 
     <div class="slide-editor">
       {#each slides as slide (slide.id)}
@@ -342,7 +344,30 @@ function openShareLink(link) {
 </div>
 
 <style>
-  /* Global styles for the entire component */
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+  * {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h1 {
+  font-size: 35px;
+  font-weight: 500;
+  color: #fff;
+  padding-top:0; /* Removes all margin */
+  padding-bottom: 10px; /* Removes padding at the top and sets bottom padding */
+}
+  .presentation-name{
+    border-radius: 6px;
+    border: 3px solid #023872;
+  } 
+  .addSlide{
+    font-size: 19px;
+  }
+  .addSlide:hover{
+    font-size: 20px;
+  }
   .container {
     display: flex;
     height: 100vh;
@@ -350,11 +375,16 @@ function openShareLink(link) {
   }
 
   .sidebar {
-    width: 200px;
+    width: 250px;
     background-color: #1f2b46;
     color: #fff;
-    padding: 10px;
-    box-sizing: border-box;
+    padding: 15px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+  }
+
+  .sidebar:hover {
+    width: 280px;
   }
 
   .sidebar.left {
@@ -373,9 +403,32 @@ function openShareLink(link) {
   .toolbar {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
     background-color: #fff;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 2px solid #002348;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .toolbar label,
+  .toolbar select,
+  .toolbar input,
+  .toolbar button {
+    margin-right: 15px;
+  }
+
+  .toolbar button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #002348;
+    color: #fff;
+    border: 2px solid #023872;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .toolbar button:hover {
+    background-color: #00346b;
   }
 
   .slide-editor {
@@ -385,8 +438,8 @@ function openShareLink(link) {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #fff;
-    overflow: hidden; /* Ensures content does not overflow */
+    background-color: #f8f9fa;
+    overflow: hidden;
   }
 
   .slide-content {
@@ -395,79 +448,76 @@ function openShareLink(link) {
     padding: 10px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    cursor: move; /* Set cursor to indicate draggable */
+    cursor: move;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .slide-content:focus {
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
   }
 
   .side-tools {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    background-color: #fff;
-    border-left: 1px solid #ccc;
+    margin-top: 20px;
+    border-top: 1px solid #010d59;
   }
 
   .side-tools.left {
     align-items: flex-start;
-    margin-top: 20px;
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
+    border-top: none;
   }
 
   .side-tools.left button {
     margin-bottom: 10px;
-    color: #fff; /* Darken the text color for visibility */
-    background-color: #1f2b46; /* Subtle color background */
-    border: none;
+    color: #fff;
+    background-color: #002348;
+    border: 2px solid;
+    border-color: #023872;
     padding: 10px 15px;
     cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
   }
 
   .side-tools.left button:hover {
-    background-color: #384f84; /* Darken background on hover */
+    background-color: #00346b;
   }
 
   .side-tools.left button:active {
-    transform: translateY(1px);
-  }
-
-  .side-tools button {
-    margin-left: 10px;
-    color: #333; /* Darken the text color for visibility */
-    background-color: #f4f4f4; /* Subtle color background */
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-  }
-
-  .side-tools button:hover {
-    background-color: #ccc; /* Darken background on hover */
-  }
-
-  .side-tools button:active {
-    transform: translateY(1px);
+    transform: translateY(5px);
   }
 
   .slide-item input {
-    color: #000; /* Ensure the text color is black for visibility */
-    background-color: #fff; /* Ensure background is white for contrast */
+    color: #000;
+    background-color: #fff;
     border: none;
     width: 100%;
     padding: 5px;
-    box-sizing: border-box;
-  }
-  .slide-item input:focus {
-    outline: none;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
   }
 
-  /* Ensure presentation name input is visible */
+  .slide-item input:focus {
+    outline: none;
+    box-shadow: 0 1px 5px rgba(0, 123, 255, 0.5);
+  }
+
   .presentation-name {
-    color: #000; /* Black text */
-    background-color: #fff; /* White background */
+    color: #000;
+    background-color: #fff;
     border: none;
-    padding: 5px;
-    margin-bottom: 10px;
-    width: calc(100% - 20px); /* Adjust width as needed */
-    box-sizing: border-box;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .presentation-name:focus {
+    outline: none;
+    box-shadow: 0 1px 5px rgba(0, 123, 255, 0.5);
   }
 </style>
