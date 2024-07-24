@@ -266,9 +266,9 @@ function openShareLink(link) {
     <button class="addSlide" on:click={addSlide}>Add Slide</button>
 
     <div class="side-tools left">
-      <button on:click={savePresentation}>Save</button>
-      <button on:click={sharePresentation}>Share</button>
-      <button on:click={downloadPresentation}>Download</button>
+      <button class="save"   on:click={savePresentation}>Save</button>
+      <button class="share" on:click={sharePresentation}>Share</button>
+      <button class="download" on:click={downloadPresentation}>Download</button>
     </div>
   </div>
 
@@ -363,10 +363,14 @@ function openShareLink(link) {
     border: 3px solid #023872;
   } 
   .addSlide{
-    font-size: 19px;
+    padding: 10px 7px;
+    width: 100px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #5a04cb;
   }
   .addSlide:hover{
-    font-size: 20px;
+    font-size: 18px;
   }
   .container {
     display: flex;
@@ -419,16 +423,15 @@ function openShareLink(link) {
   .toolbar button {
     padding: 8px 12px;
     border: none;
-    background-color: #002348;
+    background-color: #00a2ff;
     color: #fff;
-    border: 2px solid #023872;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
 
   .toolbar button:hover {
-    background-color: #00346b;
+    font-size: 18px;
   }
 
   .slide-editor {
@@ -472,17 +475,24 @@ function openShareLink(link) {
   .side-tools.left button {
     margin-bottom: 10px;
     color: #fff;
-    background-color: #002348;
-    border: 2px solid;
-    border-color: #023872;
     padding: 10px 15px;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
   }
+  .save{
+    background-color:  #15ff00;
+  }
+  .share{
+    background-color:  #ffc403;
+    
+  }
+  .download{
+    background-color:  #ff4d00; 
+  }
 
   .side-tools.left button:hover {
-    background-color: #00346b;
+    font-size: 18px;
   }
 
   .side-tools.left button:active {
