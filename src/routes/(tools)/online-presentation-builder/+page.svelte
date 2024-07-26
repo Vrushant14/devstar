@@ -264,8 +264,6 @@
       {/each}
     </div>
   </div>
-
-
   
   <div class="main">
     <div class="toolbar">
