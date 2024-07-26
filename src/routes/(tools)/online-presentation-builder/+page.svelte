@@ -1,8 +1,7 @@
 <script>
-  import { onMount } from "svelte";
-  import { createEventDispatcher } from "svelte";
-  import jsPDF from 'jspdf';
   import html2canvas from 'html2canvas';
+  import jsPDF from 'jspdf';
+  import { createEventDispatcher } from "svelte";
 
   let presentationName = "";
   let slides = [
@@ -265,6 +264,9 @@
       {/each}
     </div>
   </div>
+
+
+  
   <div class="main">
     <div class="toolbar">
       <select on:change={changeFont}>
